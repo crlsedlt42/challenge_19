@@ -1,3 +1,13 @@
+# 'given' is a repository I use for given content from coding bootcamp i.e. the mini project and the challenge readme
+-given
+
+package-lock.json
+
+node_modules
+
+
+
+### GITIGNORE CODE FROM GITHUB ###
 # Logs
 logs
 *.log
