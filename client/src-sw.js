@@ -27,4 +27,23 @@ warmStrategyCache({
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
 // TODO: Implement asset caching
-registerRoute();
+registerRoute(
+  // This is a custom function that returns a boolean to determine if the route should match.
+  ({ request }) => [
+    request.destination === 'script' ||
+    request.destination === 'style' ||
+    request.destination === 'font'
+  ].includes(request.destination),
+
+  new CacheFirst({
+    cacheName: 'asset-cache',
+    plugins: [
+      new CacheableResponsePlugin({
+        statuses: [0, 200],
+      }),
+      new ExpirationPlugin({
+        maxAgeSeconds: 14 * 24 * 60 * 60, // Expire after 14 days
+      }),
+    ],
+  })
+);
