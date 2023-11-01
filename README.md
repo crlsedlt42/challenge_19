@@ -22,6 +22,8 @@ This application needs the following npm packages, these are the terminal node c
 5. [Express.js]: npm install express
 ```
 
+![Deployed Heroku Application](https://eerie-treat-58818-cf62a513f92f.herokuapp.com/)
+
 ## Usage
 
 After installing all depandancies the application can start by using the command
